@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_app/module/home/homePage.dart';
 import 'package:shopping_app/module/signin/bloc/login_bloc.dart';
 import 'package:shopping_app/module/signup/local_widget/customButton.dart';
+import 'package:shopping_app/module/signup/signup.dart';
 
 import '../signup/local_widget/textField.dart';
 
@@ -57,11 +57,29 @@ class Signin extends StatelessWidget {
               controller: _password,
               hintTxt: 'Password',
             ),
-           CustomButton(ontap: () {
-              loginBloc.add(
-                  UserLoginEvent(email: _email.text, password: _password.text),
-                );
-           }, text: 'Login')
+            CustomButton(
+                ontap: () {
+                  loginBloc.add(
+                    UserLoginEvent(
+                        email: _email.text, password: _password.text),
+                  );
+                },
+                text: 'Login'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Don\'t have an account'),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Signup(),
+                          ));
+                    },
+                    child: Text('Sign up'))
+              ],
+            )
           ]),
         ),
       ),

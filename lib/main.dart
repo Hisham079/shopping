@@ -6,6 +6,7 @@ import 'package:shopping_app/firebase_options.dart';
 import 'package:shopping_app/module/home/cubit/nav_bar_cubit.dart';
 import 'package:shopping_app/module/home/screens/homeScreen/homeScreen.dart';
 import 'package:shopping_app/module/signup/signup.dart';
+import 'package:shopping_app/module/splashscreen/splashScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       child: ScreenUtilInit(
         builder: (context, child) {
           return MaterialApp(
-          home: Signup(),
+          home: SplashScreen(),
         );
         },
         
