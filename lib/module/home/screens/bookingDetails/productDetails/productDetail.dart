@@ -32,7 +32,8 @@ class ProductDetails extends StatelessWidget {
                               },
                               child: const Icon(Icons.arrow_back_ios)),
                           trailing: CircleAvatar(
-                            child: Image.asset('Assets/images/nike.png'),
+                            backgroundImage: NetworkImage(
+                                'https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png'),
                           ),
                         ),
                         Stack(
@@ -90,9 +91,8 @@ class ProductDetails extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               color: Colors.white,
-                              boxShadow:const [
-                                 BoxShadow(
-                                    color: Colors.grey, blurRadius: 10)
+                              boxShadow: const [
+                                BoxShadow(color: Colors.grey, blurRadius: 10)
                               ]),
                           child: Container(
                             margin: const EdgeInsets.all(20),
@@ -142,7 +142,8 @@ class ProductDetails extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CustomButton(
-                                        ontap: () => bookingConfirm(context: context),
+                                        ontap: () =>
+                                            bookingConfirm(context: context),
                                         text: 'Place Order'),
                                   ],
                                 )
@@ -153,7 +154,6 @@ class ProductDetails extends StatelessWidget {
                       ],
                     );
                   },
-                 
                 ),
               ),
             );

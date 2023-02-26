@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +10,6 @@ class WishList extends StatelessWidget {
   WishList({super.key});
   final data = FirebaseFirestore.instance.collection('wishList');
   final orderBloc = OrderBloc();
-  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +32,10 @@ class WishList extends StatelessWidget {
           }
         },
         child: StreamBuilder(
-            stream: data.where('productId',).snapshots(),
+            stream: data.snapshots(),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasData) {
-              final prdctData = snapshot.data!.docs;
+                final prdctData = snapshot.data!.docs;
 
                 return SafeArea(
                   child: Column(
